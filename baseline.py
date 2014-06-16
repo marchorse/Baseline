@@ -325,6 +325,8 @@ class FocusTracker(object):
             # goal_labels
             for slot in informed_goals:
                 this_u[slot][informed_goals[slot]] += score
+            for slot in denied_goals:
+                this_u[slot][informed_goals[slot]] -= score
 
         # in focus manner,前面的话轮的用户目的乘上一个q去打折                        
         for slot in this_u.keys() + hyps["goal-labels"].keys() :
